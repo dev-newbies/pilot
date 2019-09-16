@@ -50,7 +50,7 @@
   isAdult: true
 }
 ```
-중괄호 안에 속성의 이름, 콜론(`:`), 그리고 해당 속성의 값을 쓰고, 속성이 여러개라면 콜론(`,`)으로 구분하여 줍니다. 원시 타입과 마찬가지로 변수에 대입할 수 있습니다.
+중괄호 안에 속성(Property)의 이름, 콜론(`:`), 그리고 해당 속성의 값을 쓰고, 속성이 여러개라면 콜론(`,`)으로 구분하여 줍니다. 원시 타입과 마찬가지로 변수에 대입할 수 있습니다.
 ```javascript
 var newt = {
   name: 'newt',
@@ -75,17 +75,104 @@ var newt = {
   }
 }
 ```
+#### 생성한 객체의 속성에 접근하기
+객체의 속성에 접근하기 위해서는 `.` 연산자 또는 `[]` 연산자를 사용할 수 있습니다. `[]` 연산자를 사용할 때는 `['속성이름']`의 형식으로 사용하며, 속성이름은 문자열로 전달합니다.
+```javascript
+console.log(newt); // newt 객체 전체를 콘솔로 출력
 
-TODO: 속성에 접근하기, `.` 연산자, `[]` 연산자, 속성 추가하기, 속성 삭제하기
+console.log(newt.name); // '.' 연산자로 newt 객체의 name 속성을 콘솔로 출력
 
+console.log(newt['name']); // '[]' 연산자로 newt 객체의 name 속성을 콘솔로 출력
 
+var propertyName = 'birth'; // 'birth'를 값으로 갖는 propertyName 변수를 선언
+console.log(newt[propertyName]); // 변수에 담긴 문자열을 속성의 이름으로 사용
+console.log(newt.propertyName); // 이건 안됩니다.
+```
+
+#### 선언한 후에 객체에 속성 추가하기
+```javascript
+console.log(newt.hairColor); // 정의되지 않았으므로 undefined가 출력됩니다.
+
+newt.hairColor = 'dark brown'; // newt 객체에 hairColor라는 속성을 추가하고 'dark brown'을 할당
+// 또는 newt['hairColor'] = 'dark brown';
+
+console.log(newt.hairColor); // 할당했던 'dark brown'을 출력
+```
+
+#### 속성 지우기
+delete 키워드를 이용해 객체에 정의된 속성을 지울 수 있습니다.
+````javascript
+console.log(newt.hairColor);
+
+delete newt.hairColor; // delete 키워드로 hairColor 속성을 제거
+
+console.log(newt.hairColor); // undefined 출력
+```
 ### 배열(Array)
 객체가 데이터의 덩어리였다면, 배열은 데이터의 목록입니다. 실세계에서의 할 일(To-Do) 의 목록, 연락처 목록과 같은 것들을 배열로 표현할 수 있습니다.  
 ```
 var todoList = ['아침먹기', '점심먹기', '저녁먹기'];
 var values = ['hello', 3.14, newt, true, false];
-```
-객체와 마찬가지로 변수에 할당할 수 있고, 
-배열을 담는 변수의 이름은 일반적으로 복수형으로 표현하거나, List를 붙입니다(`studentList`).
 
-TODO: 배열의 속성과 메서드들
+var nestedArray = ['this', 'is', 'array', values, [], [1,2,3, [4, 5, [6]]]]
+```
+객체와 마찬가지로 변수에 배열을 할당할 수 있고, 여러 타입을 배열에 담을 수 있으며, 객체와 마찬가지로 배열 안에 배열을 충첩해서 넣을 수도 있습니다. 배열을 담는 변수나 속성의 이름은 일반적으로 복수형으로 표현하거나, List를 붙입니다(`studentList`).  
+  
+배열 내에 담긴 데이터는 배열의 요소(Element)라고 합니다. `[]`만 쓰고 요소를 쓰지 않으면 비어있는 배열이 됩니다.  
+배열은 문자열과 마찬가지로 `length`라는 속성을 갖습니다. `length` 속성을 통해 배열에 담긴 요소의 수를 알 수 있습니다.
+```
+var array = [];
+console.log(array.length); // 비어있으므로 0이 출력됩니다.
+
+var names = ['newt', 'newton', 'news'];
+console.log(names.length); // 3개의 요소가 담겨 있으므로 3이 출력됩니다.
+```
+
+### 배열의 n번 째 요소에 접근하기
+배열에는 요소가 순서대로 담겨져 있습니다. 그래서 배열의 요소에 담긴 값을 가져올 때 몇 번째에 있는 요소인지를 전달하여 요소에 접근할 수 있습니다.  
+이 때 객체와 유사하게 `[]` 연산자를 사용하며, `[]` 안에는 몇 번째 요소인지 요소의 인덱스(index)를 전달합니다.  
+배열의 인덱스는 0부터 시작합니다. 즉 첫 번째 요소의 인덱스는 0입니다. 그리고 배열의 마지막 요소의 인덱스는 항상 배열의 길이(`length` 속성) - 1입니다.
+```javascript
+var values = [2,4,6,8,10]; // 다섯 개의 요소가 담긴 배열을 선언하여 values 변수에 대입
+
+console.log(values); // 배열 전체를 출력하기
+console.log(values[0]); // 배열의 첫 번째 요소(2)를 출력
+console.log(values[values.length - 1]); // 배열의 마지막 요소(10)을 출력
+
+// 객체의 속성에 접근할 때와 마찬가지로 인덱스를 변수로 전달할 수도 있습니다.
+var i = 3;
+console.log(values[i]); // 네 번째(인덱스는 3) 요소를 출력
+
+// 요소의 값을 변경하기
+console.log(values[0]); // 선언할 때 넣어준 2 출력
+values[0] = 'Hello Array!'; // 'Hello Array!' 문자열로 값을 바꿔주기
+console.log(values[0]); // 바뀐 값으로 출력
+```
+
+#### 배열의 마지막에 요소 추가하기
+우선 당황스럽지만 배열도 객체입니다. `[]` 연산자로 인덱스를 전달하긴 했지만, 객체에서 속성에 접근하는 두 가지 방법 중 하나로 동일하게 `[]`를 사용하는 방법이 있었죠?  
+데이터로써의 객체만 다뤘지만 객체는 다양한 형태로 활용될 수 있습니다. 아직 함수를 배우지 않았지만 간단한 함수를 객체에 추가해 보도록 하겠습니다.
+```javascript
+var game = {
+  start: function() { // start라는 속성에 함수를 할당해 줍니다.
+    console.log('게임을 시작합니다.');
+  }
+};
+
+game.start; // start에는 함수 자체가 담겨져 있으므로 실행이 되지는 않습니다.
+game.start(); // 함수를 실행할 때는 여닫는 괄호를 붙여줍니다.
+// 함수 안의 내용이 실행됩니다.
+```
+위와 같이 객체 안에 있는 함수를 메서드(method)라고 합니다. 지금까지 출력을 위해 써왔던 `console`도 객체이고 `.` 연산자를 통해 `console` 객체 안의 `log` 메서드를 사용해 왔습니다.
+자바스크립트에는 다양한 내장 객체가 미리 만들어져 있어, 잘 활용한다면 보다 수월하게 프로그래밍을 할 수 있습니다. 배열 객체 역시 유용한 기능을 하는 많은 메서드들이 있고, 그 중에 `push` 메서드를 사용하면 배열에 요소를 추가할 수 있습니다.
+```javascript
+var techfins = ['카카오페이', '네이버페이', '토스'];
+techfins.push('신생 테크핀 기업');
+
+console.log(techfins); // push 메서드로 추가한 항목이 함께 표시됩니다.
+```
+`push` 메서드를 활용해서 추가할 수도 있고, 배열의 마지막 인덱스 다음의 인덱스를 지정하여 요소를 추가할 수도 있습니다.
+```javascript
+techfins[4] = '스타트업';
+// 또는 techfins[techfins.length] = '스타트업'
+```

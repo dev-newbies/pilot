@@ -112,3 +112,21 @@ var name = 'newt', department = '핀테크서비스개발팀', floor = 11, age;
 - 변수와 구분되는 상수(값을 바꿀 수 없는)는 Upper Snake Case를 사용합니다.
 - 참/거짓 타입(Boolean)은 is를 붙여 표현합니다. 예) `var isAdult = true;`
 - 클래스로써의 함수 이름이나 클래스 이름은 Pascal Case를 사용합니다.
+
+
+## 3. 실습
+Swap: 변수 `a`와 `b`를 선언하면서 값을 넣어 초기화 해주고, 변수 `a`와 `b`에 할당된 값을 서로 바꿔봅시다.  
+`practice1.js` 파일
+```javascript
+// 이 부분에 변수 a와 b 선언해주는 코드 작성하기
+
+console.log(a); // 3.14 출력
+console.log(b); // 'newt' 출력
+
+/*
+여기에 a와 b 변수가 가진 값을 서로 바꾸는 코드를 작성하기
+*/
+
+console.log(a); // b에 있던 값이 a에 담겨져 출력됨
+console.log(b); // a에 있던 값이 b에 담겨져 출력됨
+```
