@@ -102,13 +102,14 @@ console.log(newt.hairColor); // 할당했던 'dark brown'을 출력
 
 #### 속성 지우기
 delete 키워드를 이용해 객체에 정의된 속성을 지울 수 있습니다.
-````javascript
+```javascript
 console.log(newt.hairColor);
 
 delete newt.hairColor; // delete 키워드로 hairColor 속성을 제거
 
 console.log(newt.hairColor); // undefined 출력
 ```
+
 ### 배열(Array)
 객체가 데이터의 덩어리였다면, 배열은 데이터의 목록입니다. 실세계에서의 할 일(To-Do) 의 목록, 연락처 목록과 같은 것들을 배열로 표현할 수 있습니다.  
 ```
