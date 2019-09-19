@@ -1,5 +1,5 @@
 # 함수를 써봅시다.
-![함수 상자](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Function_machine2.svg/440px-Function_machine2.svg.png)
+![함수 상자](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Function_machine2.svg/440px-Function_machine2.svg.png)  
 엑셀의 함수를 생각해 봅시다. 시트에 아래와 같이 값이 채워져 있을 때 `B1` 셀에 A1~A5 셀의 합계를 구하려면 어떻게 해야할까요?
 
 | \ | A | B |
